@@ -1,0 +1,10 @@
+C:\Users\stanwoodn\source\repos\A258107\A258107\bin\Debug\A258107.exe.config
+C:\Users\stanwoodn\source\repos\A258107\A258107\bin\Debug\A258107.exe
+C:\Users\stanwoodn\source\repos\A258107\A258107\bin\Debug\A258107.pdb
+C:\Users\stanwoodn\source\repos\A258107\A258107\obj\Debug\A258107.csprojAssemblyReference.cache
+C:\Users\stanwoodn\source\repos\A258107\A258107\obj\Debug\A258107.Form1.resources
+C:\Users\stanwoodn\source\repos\A258107\A258107\obj\Debug\A258107.Properties.Resources.resources
+C:\Users\stanwoodn\source\repos\A258107\A258107\obj\Debug\A258107.csproj.GenerateResource.cache
+C:\Users\stanwoodn\source\repos\A258107\A258107\obj\Debug\A258107.csproj.CoreCompileInputs.cache
+C:\Users\stanwoodn\source\repos\A258107\A258107\obj\Debug\A258107.exe
+C:\Users\stanwoodn\source\repos\A258107\A258107\obj\Debug\A258107.pdb

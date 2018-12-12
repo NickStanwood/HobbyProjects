@@ -1,0 +1,10 @@
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\bin\Debug\Recaman Sequence.exe.config
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\bin\Debug\Recaman Sequence.exe
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\bin\Debug\Recaman Sequence.pdb
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\obj\Debug\Recaman Sequence.csprojAssemblyReference.cache
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\obj\Debug\Recaman_Sequence.Form1.resources
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\obj\Debug\Recaman_Sequence.Properties.Resources.resources
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\obj\Debug\Recaman Sequence.csproj.GenerateResource.cache
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\obj\Debug\Recaman Sequence.csproj.CoreCompileInputs.cache
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\obj\Debug\Recaman Sequence.exe
+C:\Users\stanwoodn\source\repos\Recaman Sequence\Recaman Sequence\obj\Debug\Recaman Sequence.pdb
