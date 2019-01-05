@@ -1,0 +1,1 @@
+﻿INSERT INTO Nsets VALUES('Two-Headed Giant Tournament','2HG','00/0000'),INSERT INTO Ncards VALUES('THGT_1','Underworld Dreams','2HG','Enchantment','R','{B}{B}{B}','3','','',NULL,'1','B',NULL);

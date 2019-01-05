@@ -1,0 +1,1 @@
+﻿INSERT INTO Nsets VALUES('Worlds','WRL','00/0000'),INSERT INTO Ncards VALUES('WRL_1','Balduvian Horde','WRL','Creature — Human Barbarian','R','{2}{R}{R}','4','5','5',NULL,'1','R',NULL);

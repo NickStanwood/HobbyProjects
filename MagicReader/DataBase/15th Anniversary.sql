@@ -1,0 +1,1 @@
+﻿INSERT INTO Nsets VALUES('15th Anniversary','15A','00/0000'),INSERT INTO Ncards VALUES('15ANN_1','Char','15A','Instant','R','{2}{R}','3','','',NULL,'1','R',NULL),('15ANN_2','Kamahl, Pit Fighter','15A','Legendary Creature — Human Barbarian','R','{4}{R}{R}','6','6','1',NULL,'2','R',NULL);

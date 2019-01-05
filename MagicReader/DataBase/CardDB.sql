@@ -1,0 +1,1 @@
+﻿CREATE TABLE Nsets(Nname text,Ncode text,Ndate text);CREATE TABLE Ncards(Nid text,Nname text,Nset text,Ntype text,Nrarity text,Nmanacost text,Nconverted_manacost text,Npower text,Ntoughness text,Nloyalty text,Nnumber text,Ncolor text,Nis_original text);

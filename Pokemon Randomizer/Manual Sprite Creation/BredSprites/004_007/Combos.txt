@@ -1,0 +1,33 @@
+Squirtle{       //1
+    head
+    body
+    tail
+    color
+}
+
+Charmander{     //0
+    head
+    body
+    tail
+    color
+}
+
+head | body| tail|color|
+-----|-----|-----|-----|---
+  0  |  0  |  0  |  0  |        // Charmnder
+  0  |  0  |  0  |  1  |        //done
+  0  |  0  |  1  |  0  |
+  0  |  0  |  1  |  1  |
+  0  |  1  |  0  |  0  |
+  0  |  1  |  0  |  1  |        // done
+  0  |  1  |  1  |  0  |
+  0  |  1  |  1  |  1  |
+  1  |  0  |  0  |  0  |
+  1  |  0  |  0  |  1  |
+  1  |  0  |  1  |  0  |
+  1  |  0  |  1  |  1  |  
+  1  |  1  |  0  |  0  |
+  1  |  1  |  0  |  1  |
+  1  |  1  |  1  |  0  |        // done
+  1  |  1  |  1  |  1  |        // Squirtle
+

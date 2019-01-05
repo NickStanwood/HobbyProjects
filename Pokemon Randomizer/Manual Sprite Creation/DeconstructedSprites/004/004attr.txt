@@ -1,0 +1,55 @@
+/*======================================================*
+ * color = { RGB , Hue , Sat , Val }                    *
+ * color lists always go from lighter to darker         *
+ *                                  (Val decreases)     *
+ *======================================================*/
+Charmander{
+    ///////////////////colors////////////////////////
+    /* Body */
+    PrimaryColor    =   0xFFC562 , 37 , 61 , 100,  
+                        0xFF9441 , 26 , 74 , 100,
+                        0xDE5239 , 9  , 74 , 87 ,     
+                        0x8B2900 , 17 , 100, 54      
+    
+    /* under belly */
+    SecondaryColor  =   0xFFD57B , 40 , 51 , 100,
+                        0xE6AC5A , 35 , 60 , 90 
+
+    /* tail flame */
+    TertiaryColor   =   0xFFD508 , 49 , 96 , 100,
+                        0xF6A400 , 40 , 100, 96 ,
+                        0xE63900 , 14 , 100, 90 
+    
+    EyeColor        =   0x94CDDE , 193, 33 , 87 ,
+                        0x41A47B , 155, 60 , 64 ,
+                        0x184A31 , 150, 67 , 29
+    
+    MouthColor      =   0xE63900 , 14 , 100, 90      //Repeat
+
+    ShadingColor    =   0xFFFFFF , 0  , 0  , 100,
+                        0xB4B4B4 , 0  , 0  , 70 ,
+                        0x101010 , 0  , 0  ,  6 
+    
+    ////////////////Body Connections////////////////////////
+    Body            =   34 , 13 , 53 , 54
+    Head            =   29 , 44    
+    Tail            =   16 , 43
+    
+    BodyBack        =   95 , 111 , 65 , 154  
+    HeadBack        =   23 , 61
+    TailBack        =   60 , 72
+}
+
+[4]
+PrimaryColor=0xFFC562,37,61,100,0xFF9441,26,74,100,0xDE5239,9,74,87,0x8B2900,17,100,54 
+SecondaryColor=0xFFD57B,40,51,100,0xE6AC5A,35,60,90
+TertiaryColor=0xFFD508,49,96,100,0xF6A400,40,100,96,0xE63900,14,100,90 
+EyeColor=0x94CDDE,193,33,87,0x41A47B,155,60,64,0x184A31,150,67,29
+MouthColor=0xE63900,14,100,90
+ShadingColor=0xFFFFFF,0,0,100,0xB4B4B4,0,0,70,0x101010,0,0,6
+Body=34,13,53,54
+Head=29,44
+Tail=16,43
+BodyBack=95,111,65,154
+HeadBack=23,61
+TailBack=60,72

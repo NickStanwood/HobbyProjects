@@ -1,0 +1,1 @@
+﻿INSERT INTO Nsets VALUES('Summer of Magic','SUM','00/0000'),INSERT INTO Ncards VALUES('SUM_1','Faerie Conclave','SUM','Land','R','','0',NULL,NULL,'','1','L',NULL),('SUM_2','Treetop Village','SUM','Land','R','','0',NULL,NULL,'','2','L',NULL);

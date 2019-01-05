@@ -1,0 +1,1 @@
+﻿INSERT INTO Nsets VALUES('Legend Membership','LGM','00/0000'),INSERT INTO Ncards VALUES('DCILM_1','Counterspell','LGM','Instant','R','{U}{U}','2','','',NULL,'1','U',NULL),('DCILM_2','Incinerate','LGM','Instant','R','{1}{R}','2','','',NULL,'2','R',NULL);

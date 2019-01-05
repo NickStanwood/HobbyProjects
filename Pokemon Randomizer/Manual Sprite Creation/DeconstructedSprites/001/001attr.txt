@@ -1,0 +1,54 @@
+/*==========================================================================*
+ * color = { RGB , Hue , Sat , Val }                                        *
+ * color lists always go from lighter to darker (Val decreases)             *
+ * body = {{headx , heady} , {tailx , taily}}                               *
+ *          The connection points for the head and tail                     *
+ *          onto the body sprite                                            *
+ * bodyb = {{headx , heady} , {tailx , taily}}                              *
+ *          The connection points for the head and tail                     *
+ *          onto the back body sprite                                       *
+ *==========================================================================*/
+Bulbasaur{
+    ///////////////////colors////////////////////////
+    /* Body */
+    PrimaryColor    =   0x84EFC6 , 157, 44 , 93,  
+                        0x63D6B5 , 162, 53 , 83,
+                        0x399494 , 180, 61 , 58,    
+                        0x184A4A , 180, 67 , 29      
+    
+    /* Bulb */
+    SecondaryColor  =   0x8DFF73 , 88 , 54 , 100,
+                        0xA5D642 , 79 , 69 , 83 ,
+                        0x73AD31 , 88 , 71 , 67 ,
+                        0x526329 , 77 , 58 , 38 
+    
+    EyeColor        =   0xFF6B63 , 3  , 61 , 100,
+                        0xEF2139 , 353, 86 , 93 ,
+                        0xAD0031 , 343, 100, 67 
+    
+    MouthColor     =    0xFF6B63 , 3  , 61 , 100,     //Repeat
+                        0xEF2139 , 353, 86 , 93 ,     //repeat
+                        0xAD0031 , 343, 100, 67       //Repeat
+    
+    ShadingColor    =   0xFFFFFF , 0  , 0  , 100,
+                        0xCECECE , 0  , 0  , 80 ,
+                        0x101010 , 0  , 0  ,  6 
+    
+    ////////////////Body Connections////////////////////////
+    Body            =   64 , 76 ,102, 80
+    Head            =   80 , 82
+    
+    BodyBack        =   88 , 123, 70 , 170
+    HeadBack        =   64 , 100
+}
+
+[1]
+PrimaryColor=0x84EFC6,157,44,93,0x63D6B5,162,53,83,0x399494,180,61,58,0x184A4A,180,67,29
+SecondaryColor=0x8DFF73,88,54,100,0xA5D642,79,69,83,0x73AD31,88,71,67,0x526329,77,58,38
+EyeColor=0xFF6B63,3,61,100,0xEF2139,353,86,93,0xAD0031,343,100,67 
+MouthColor=0xFF6B63,3,61,100,0xEF2139,353,86,93,0xAD0031,343,100,67
+ShadingColor=0xFFFFFF,0,0,100,0xCECECE,0,0,80,0x101010,0,0,6
+Body=64,76,102,80
+Head=80,82
+BodyBack=88,123,70,170
+HeadBack=64,100
