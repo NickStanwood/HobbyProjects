@@ -1,0 +1,67 @@
+/*==========================================================================*
+ * color = RGB , Hue , Sat , Val                                            *
+ * color lists always go from lighter to darker (Val decreases)             *
+ * Body = headx , heady , tailx , taily                                     *
+ *          The connection points for the head and tail                     *
+ *          onto the body sprite                                            *
+ * BodyBack = headx , heady , tailx , taily                                 *
+ *          The connection points for the head and tail                     *
+ *          onto the back body sprite                                       *
+ *==========================================================================*/
+pokemon{
+    ///////////////////colors////////////////////////
+    /* Body */
+    PrimaryColor    =   0x ,  ,  ,  ,  
+                        0x ,  ,  ,  ,
+                        0x ,  ,  ,  ,    
+                        0x ,  ,  ,       
+    
+    /*  */
+    SecondaryColor  =   0x ,  ,  ,  ,
+                        0x ,  ,  ,  ,
+                        0x ,  ,  ,  ,
+                        0x ,  ,  ,  
+
+    /*  */
+    TertiaryColor   =   0x ,  ,  ,  ,
+                        0x ,  ,  ,  ,
+                        0x ,  ,  ,  ,
+                        0x ,  ,  ,  
+    
+    EyeColor        =   0x ,  ,  ,  ,
+                        0x ,  ,  ,  ,
+                        0x ,  ,  ,  
+    
+    MouthColor      =   0x ,  ,  ,  ,
+                        0x ,  ,  ,  
+    
+    ShadingColor    =   0xFFFFFF , 0  , 0  , 100,
+                        0xCECECE , 0  , 0  , 80 ,
+                        0x101010 , 0  , 0  ,  6 
+    
+    ////////////////Body Connections////////////////////////
+    Body            =   ,  ,            
+                        ,  
+    Head            =   ,  
+    Tail            =   ,  
+    
+    BodyBack        =   ,  ,
+                        ,  
+    HeadBack        =   ,
+    TailBack        =   ,
+}
+
+[0]
+PrimaryColor=
+SecondaryColor=
+TertiaryColor=
+EyeColor=
+MouthColor=
+ShadingColor=
+Body=
+Head=
+Tail=
+BodyBack=
+HeadBack=
+TailBack=
+

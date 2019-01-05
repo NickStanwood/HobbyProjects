@@ -1,0 +1,62 @@
+/*==========================================================================*
+ * color = RGB , Hue , Sat , Val                                            *
+ * color lists always go from lighter to darker (Val decreases)             *
+ * Body = headx , heady , tailx , taily                                     *
+ *          The connection points for the head and tail                     *
+ *          onto the body sprite                                            *
+ * BodyBack = headx , heady , tailx , taily                                 *
+ *          The connection points for the head and tail                     *
+ *          onto the back body sprite                                       *
+ *==========================================================================*/
+Caterpie{
+    ///////////////////colors////////////////////////
+    /* Body */
+    PrimaryColor    =   0x6AD531 , 99 , 76 , 83 ,  
+                        0x31AC41 , 127 , 71 , 67 ,
+                        0x207B4A , 147 , 73 , 48 ,    
+                        0x185A41 , 157 , 73 , 35      
+    
+    /*  */
+    SecondaryColor  =   0xF6EE8B , 55 , 43 , 96 ,
+                        0xD5BD83 , 42 , 38 , 83 ,
+                        0x7B834A , 68 , 43 , 51 
+
+    /*  */
+    TertiaryColor   =   0xFFB439 , 37 , 77 , 100 ,
+                        0xFF7B41 , 18 , 74 , 100 ,
+                        0xFF4141 , 0 , 74 , 100 ,
+                        0x7B394A , 344 , 53 , 48 
+    
+    EyeColor        =   0xF6EE8B , 55 , 43 , 96 ,
+                        0xD5BD83 , 42 , 38 , 83 ,
+                        0x7B834A , 68 , 43 , 51  
+    
+    
+    ShadingColor    =   0xFFFFFF , 0  , 0  , 100,
+                        0xCECECE , 0  , 0  , 80 ,
+                        0x101010 , 0  , 0  ,  6 
+    
+    ////////////////Body Connections////////////////////////
+    Body            =  17 , 13 
+    Head            =  27 , 29  
+    
+    BodyBack        =   ,  ,
+                        ,  
+    HeadBack        =   ,
+    TailBack        =   ,
+}
+
+[10]
+PrimaryColor=0x6AD531,99,76,83,0x31AC41,127,71,67,0x207B4A,147,73,48,0x185A41,157,73,35 
+SecondaryColor=0xF6EE8B,55,43,96,0xD5BD83,42,38,83,0x7B834A,68,43,51 
+TertiaryColor=0xFFB439,37,77,100,0xFF7B41,18,74,100,0xFF4141,0,74,100,0x7B394A,344,53,48
+EyeColor=0xF6EE8B,55,43,96,0xD5BD83,42,38,83,0x7B834A,68,43,51
+MouthColor=
+ShadingColor=0xFFFFFF,0,0,100,0xCECECE,0,0,80,0x101010,0,0,6
+Body=17,13
+Head=27,29
+Tail=
+BodyBack=
+HeadBack=
+TailBack=
+
