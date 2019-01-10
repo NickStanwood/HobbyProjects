@@ -26,7 +26,7 @@ namespace MapGenerator
         }
     }
 
-    public class HeightData
+    public class HeightMapping
     {
         public int TerrainOctaves = 6;
         public double TerrainFrequency = 1.25;
@@ -38,8 +38,8 @@ namespace MapGenerator
         public float Forest;        // 0.8f
         public float Rock;          // 0.9f
 
-        public HeightData() : this(0.4f) { }
-        public HeightData(float scale)
+        public HeightMapping() : this(0.4f) { }
+        public HeightMapping(float scale)
         {
             if (scale >= 1.0f || scale <= 0.0f)
             {
@@ -55,7 +55,7 @@ namespace MapGenerator
         }
     }
 
-    public class HeatData
+    public class HeatMapping
     {
 
         public int HeatOctaves = 4;
@@ -67,8 +67,8 @@ namespace MapGenerator
         public float WarmValue;             // 0.6f;
         public float WarmerValue;           // 0.8f;
 
-        public HeatData() :this(0.4f){ }
-        public HeatData(float scale)
+        public HeatMapping() :this(0.4f){ }
+        public HeatMapping(float scale)
         {
             if(scale >= 1.0f || scale <= 0.0f)
             {
@@ -84,23 +84,23 @@ namespace MapGenerator
         }
     }
 
-    public class MoistureData
+    public class MoistureMapping
     {
-        public int MoistureOctaves = 4;
+        public int MoistureOctaves = 4; 
         public double MoistureFrequency = 3.0;
         public float Scale;
-        public float DryerValue;            // 0.3f;
-        public float DryValue;              // 0.4f;
-        public float WetValue;              // 0.6f;
-        public float WetterValue;           // 0.8f;
-        public float WettestValue;          // 0.9f;
+        public float DryerValue;            // 0.3f at default
+        public float DryValue;              // 0.4f at default
+        public float WetValue;              // 0.6f at default
+        public float WetterValue;           // 0.8f at default
+        public float WettestValue;          // 0.9f at default
 
-        public MoistureData() : this(0.4f){ }
-        public MoistureData(float scale)
+        public MoistureMapping() : this(0.4f){ }
+        public MoistureMapping(float scale)
         {
             Scale = scale;
             DryerValue = 0.75f * scale;
-            DryValue = scale; ;
+            DryValue = scale;
             WetValue = 0.6667f * scale + 0.3333f;
             WetterValue = 0.3333f * scale + 0.6667f;
             WettestValue = 0.1667f * scale + 0.8333f;

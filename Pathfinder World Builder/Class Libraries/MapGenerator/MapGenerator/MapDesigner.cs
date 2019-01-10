@@ -19,9 +19,9 @@ namespace MapGenerator
         int Height;
         public string Resolution { get; private set; } = "";
 
-        HeightData Hdata = new HeightData();
-        HeatData Tdata = new HeatData();
-        MoistureData Mdata = new MoistureData();
+        HeightMapping HMapping = new HeightMapping();
+        HeatMapping TMapping = new HeatMapping();
+        MoistureMapping MMapping = new MoistureMapping();
 
         int RiverCount = 40;
         float MinRiverHeight = 0.6f;
@@ -204,7 +204,7 @@ namespace MapGenerator
             OnProgressBarUpdate(new ProgressEventArgs(1 , "Getting Data"));
             GetDataBothAxis();
 
-            UpdateMap(Hdata.Scale, Tdata.Scale, Mdata.Scale);
+            UpdateMap(HMapping.Scale, TMapping.Scale, MMapping.Scale);
 
             InitHeatData = new MapData(HeatData);
             InitHeightData = new MapData(HeightData);
@@ -219,9 +219,9 @@ namespace MapGenerator
 
         public void UpdateMap(float hScale , float TScale , float mScale)
         {
-            Hdata = new HeightData(hScale);
-            Tdata = new HeatData(TScale);
-            Mdata = new MoistureData(mScale);
+            HMapping = new HeightMapping(hScale);
+            TMapping = new HeatMapping(TScale);
+            MMapping = new MoistureMapping(mScale);
 
             if(Initialized)
             {
@@ -257,7 +257,7 @@ namespace MapGenerator
             OnProgressBarUpdate(new ProgressEventArgs(93, "Setting Moisture Map"));
             MoistureMap = TextureGenerator.GetMoistureMapTexture(Width, Height, Tiles);
             OnProgressBarUpdate(new ProgressEventArgs(95, "Setting Biome Map"));
-            BiomeMap = TextureGenerator.GetBiomeMapTexture(Width, Height, Tiles, Tdata.ColdestValue, Tdata.ColderValue, Tdata.ColdValue);
+            BiomeMap = TextureGenerator.GetBiomeMapTexture(Width, Height, Tiles, TMapping.ColdestValue, TMapping.ColderValue, TMapping.ColdValue);
             OnProgressBarUpdate(new ProgressEventArgs(97, "Setting Vintage Map"));
             VintageMap = TextureGenerator.GetVintageMapTexture(Width, Height, Tiles);
 
@@ -282,8 +282,8 @@ namespace MapGenerator
             HeightMapFractal = new ImplicitFractal(FractalType.MULTI,
                                              BasisType.SIMPLEX,
                                              InterpolationType.QUINTIC,
-                                             Hdata.TerrainOctaves,
-                                             Hdata.TerrainFrequency,
+                                             HMapping.TerrainOctaves,
+                                             HMapping.TerrainFrequency,
                                              Seed);
 
 
@@ -292,8 +292,8 @@ namespace MapGenerator
             ImplicitFractal heatFractal = new ImplicitFractal(FractalType.MULTI,
                                                               BasisType.SIMPLEX,
                                                               InterpolationType.QUINTIC,
-                                                              Tdata.HeatOctaves,
-                                                              Tdata.HeatFrequency,
+                                                              TMapping.HeatOctaves,
+                                                              TMapping.HeatFrequency,
                                                               Seed);
 
             HeatMapFractal = new ImplicitCombiner(CombinerType.MULTIPLY);
@@ -304,8 +304,8 @@ namespace MapGenerator
             MoistureMapFractal = new ImplicitFractal(FractalType.MULTI,
                                                BasisType.SIMPLEX,
                                                InterpolationType.QUINTIC,
-                                               Mdata.MoistureOctaves,
-                                               Mdata.MoistureFrequency,
+                                               MMapping.MoistureOctaves,
+                                               MMapping.MoistureFrequency,
                                                Seed);
         }
         #endregion
@@ -360,7 +360,7 @@ namespace MapGenerator
                 int x2 = MathHelper.Mod(t.X + curr, Width);
                 int y = t.Y;
 
-                AddMoisture(Tiles[x1, y], (int)(0.025f / (center - new Vector2(x1, y)).Length()));
+                AddMoisture(Tiles[x1, y], 0.025f / (center - new Vector2(x1, y)).Length());
 
                 for (int i = 0; i < curr; i++)
                 {
@@ -382,11 +382,11 @@ namespace MapGenerator
                 t.MoistureValue = 1;
 
             //set moisture type
-            if (t.MoistureValue < Mdata.DryerValue) t.MoistureType = MoistureType.Dryest;
-            else if (t.MoistureValue < Mdata.DryValue) t.MoistureType = MoistureType.Dryer;
-            else if (t.MoistureValue < Mdata.WetValue) t.MoistureType = MoistureType.Dry;
-            else if (t.MoistureValue < Mdata.WetterValue) t.MoistureType = MoistureType.Wet;
-            else if (t.MoistureValue < Mdata.WettestValue) t.MoistureType = MoistureType.Wetter;
+            if (t.MoistureValue < MMapping.DryerValue) t.MoistureType = MoistureType.Dryest;
+            else if (t.MoistureValue < MMapping.DryValue) t.MoistureType = MoistureType.Dryer;
+            else if (t.MoistureValue < MMapping.WetValue) t.MoistureType = MoistureType.Dry;
+            else if (t.MoistureValue < MMapping.WetterValue) t.MoistureType = MoistureType.Wet;
+            else if (t.MoistureValue < MMapping.WettestValue) t.MoistureType = MoistureType.Wetter;
             else t.MoistureType = MoistureType.Wettest;
         }
 
@@ -402,7 +402,7 @@ namespace MapGenerator
                     t = Tiles[x, y];
                     if (t.HeightType == HeightType.River)
                     {
-                        AddMoisture(t, Width / 8);
+                        AddMoisture(t, Width / 128);
                     }
                 }
                 if ((x % (Width / 40)) == 0)
@@ -973,9 +973,6 @@ namespace MapGenerator
                     double nz = x1 + Math.Sin(s * 2 * Math.PI) * dx / (2 * Math.PI);
                     double nw = y1 + Math.Sin(t * 2 * Math.PI) * dy / (2 * Math.PI);
 
-
-
-
                     float heightValue = (float)HeightMapFractal.Get(nx, ny, nz, nw);
                     float heatValue = (float)HeatMapFractal.Get(nx, ny, nz, nw);
                     float moistureValue = (float)MoistureMapFractal.Get(nx, ny, nz, nw);
@@ -1108,32 +1105,32 @@ namespace MapGenerator
                     t.HeightValue = heightValue;
 
 
-                    if (heightValue < Hdata.DeepWater)
+                    if (heightValue < HMapping.DeepWater)
                     {
                         t.HeightType = HeightType.DeepWater;
                         t.Collidable = false;
                     }
-                    else if (heightValue < Hdata.ShallowWater)
+                    else if (heightValue < HMapping.ShallowWater)
                     {
                         t.HeightType = HeightType.ShallowWater;
                         t.Collidable = false;
                     }
-                    else if (heightValue < Hdata.Sand)
+                    else if (heightValue < HMapping.Sand)
                     {
                         t.HeightType = HeightType.Sand;
                         t.Collidable = true;
                     }
-                    else if (heightValue < Hdata.Grass)
+                    else if (heightValue < HMapping.Grass)
                     {
                         t.HeightType = HeightType.Grass;
                         t.Collidable = true;
                     }
-                    else if (heightValue < Hdata.Forest)
+                    else if (heightValue < HMapping.Forest)
                     {
                         t.HeightType = HeightType.Forest;
                         t.Collidable = true;
                     }
-                    else if (heightValue < Hdata.Rock)
+                    else if (heightValue < HMapping.Rock)
                     {
                         t.HeightType = HeightType.Rock;
                         t.Collidable = true;
@@ -1169,11 +1166,11 @@ namespace MapGenerator
                     t.MoistureValue = moistureValue;
 
                     //set moisture type
-                    if (moistureValue < Mdata.DryerValue) t.MoistureType = MoistureType.Dryest;
-                    else if (moistureValue < Mdata.DryValue) t.MoistureType = MoistureType.Dryer;
-                    else if (moistureValue < Mdata.WetValue) t.MoistureType = MoistureType.Dry;
-                    else if (moistureValue < Mdata.WetterValue) t.MoistureType = MoistureType.Wet;
-                    else if (moistureValue < Mdata.WettestValue) t.MoistureType = MoistureType.Wetter;
+                    if (moistureValue < MMapping.DryerValue) t.MoistureType = MoistureType.Dryest;
+                    else if (moistureValue < MMapping.DryValue) t.MoistureType = MoistureType.Dryer;
+                    else if (moistureValue < MMapping.WetValue) t.MoistureType = MoistureType.Dry;
+                    else if (moistureValue < MMapping.WetterValue) t.MoistureType = MoistureType.Wet;
+                    else if (moistureValue < MMapping.WettestValue) t.MoistureType = MoistureType.Wetter;
                     else t.MoistureType = MoistureType.Wettest;
 
 
@@ -1205,11 +1202,11 @@ namespace MapGenerator
                     t.HeatValue = heatValue;
 
                     // set heat type
-                    if (heatValue < Tdata.ColdestValue) t.HeatType = HeatType.Coldest;
-                    else if (heatValue < Tdata.ColderValue) t.HeatType = HeatType.Colder;
-                    else if (heatValue < Tdata.ColdValue) t.HeatType = HeatType.Cold;
-                    else if (heatValue < Tdata.WarmValue) t.HeatType = HeatType.Warm;
-                    else if (heatValue < Tdata.WarmerValue) t.HeatType = HeatType.Warmer;
+                    if (heatValue < TMapping.ColdestValue) t.HeatType = HeatType.Coldest;
+                    else if (heatValue < TMapping.ColderValue) t.HeatType = HeatType.Colder;
+                    else if (heatValue < TMapping.ColdValue) t.HeatType = HeatType.Cold;
+                    else if (heatValue < TMapping.WarmValue) t.HeatType = HeatType.Warm;
+                    else if (heatValue < TMapping.WarmerValue) t.HeatType = HeatType.Warmer;
                     else t.HeatType = HeatType.Warmest;
 
                     Tiles[x, y] = t;

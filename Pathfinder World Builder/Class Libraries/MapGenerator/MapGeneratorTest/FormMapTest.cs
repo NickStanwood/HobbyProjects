@@ -19,9 +19,9 @@ namespace MapGeneratorTest
         private int pictureIndex;
         private static int numMaps = 5;
         
-        private HeightData HD = new HeightData();
-        private HeatData TD = new HeatData();
-        private MoistureData MD = new MoistureData();               
+        private HeightMapping HD = new HeightMapping();
+        private HeatMapping TD = new HeatMapping();
+        private MoistureMapping MD = new MoistureMapping();               
 
         private int MapHeight;
         private int MapWidth;
