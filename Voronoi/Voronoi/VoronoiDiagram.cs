@@ -28,9 +28,22 @@ namespace Voronoi
             _NumSeeds = numSeeds;
             _MinRadius = minRadius;
 
+            InitVoronoiField();
+
             CreateRandomSeeds();
 
             GrowSeeds();
+        }
+
+        private void InitVoronoiField()
+        {
+            for(int x = 0; x < _ImgSize; x++ )
+            {
+                for(int y = 0; y < _ImgSize; y++ )
+                {
+                    VoronoiField[ x, y ] = new CoordInfo();
+                }
+            }
         }
 
         private void CreateRandomSeeds()
@@ -43,9 +56,10 @@ namespace Voronoi
                 int yCoord = rand.Next(0, _ImgSize - 1);
                 Tile seed = new Tile(xCoord, yCoord , _ImgSize);
 
-                if (VoronoiField[xCoord, yCoord].TrySetTile(seed))
+                if (VoronoiField[xCoord, yCoord].IsFreeTile(seed))
                 {
                     Tiles.Add(seed);
+                    VoronoiField[ xCoord, yCoord ].SetTile( seed );
                 }
             }
         }
@@ -53,9 +67,9 @@ namespace Voronoi
         public bool GrowSeeds()
         {
             bool doneGrowing = false;
-
-            //while(!doneGrowing)
-            //{
+            int growthCount = 1000;
+            while(!doneGrowing && growthCount != 0)
+            {
                 doneGrowing = true;
                 foreach (Tile tile in Tiles)
                 {
@@ -66,15 +80,21 @@ namespace Voronoi
                         List<Coord> allowedRegion = new List<Coord>();
                         foreach(Coord c in desiredRegion)
                         {
-                            if(VoronoiField[c.X , c.Y].TrySetTile(tile))
+                            if(VoronoiField[c.X , c.Y].IsFreeTile(tile))
                             {
                                 allowedRegion.Add(c);
+                                VoronoiField[ c.X, c.Y ].SetTile( tile );
                             }
                         }
-                        tile.ExpandTile(allowedRegion);
+                        if(desiredRegion.Count() != 0 && allowedRegion.Count() == 0)
+                        {
+                            tile.FullyExpanded = true;
+                        }
+                        tile.ExpandTile(1 , allowedRegion);
                     }
                 }
-            //}       
+                growthCount--;
+            }       
             return doneGrowing;
         }
 

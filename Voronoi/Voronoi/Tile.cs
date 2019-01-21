@@ -12,7 +12,7 @@ namespace Voronoi
         public int X;
         public int Y;
 
-        private int _Radius;
+        public int Radius { get; private set; }
         private int _MaxCoord;  //this is for both the Y and X axis
 
         private List<Coord> _CurRegion;
@@ -24,7 +24,7 @@ namespace Voronoi
             X = xInit;
             Y = yInit;
 
-            _Radius = 1;
+            Radius = 0;
             _MaxCoord = maxCoord;
 
             _CurRegion = new List<Coord>();
@@ -35,26 +35,27 @@ namespace Voronoi
         {
             List<Coord> Coords = new List<Coord>();
 
-            int newRadius = _Radius + growthSize;
+            int newRadius = Radius + growthSize;
 
             for(int x = 0; x < newRadius; x++)
             {
-                for(int y = 0; y < newRadius; Y++)
+                for(int y = 0; y < newRadius; y++)
                 {
-                    if((x*x + y*y) < newRadius*newRadius)
+                    int mag = x*x + y*y;
+                    if(mag <= newRadius*newRadius && mag > (Radius - growthSize)*(Radius - growthSize))
                     {
                         // modulus max coordinate so the voronoi loops around to the other side of the image
                         Coord coord1 = new Coord((X + x) % _MaxCoord , (Y + y) % _MaxCoord);                            // sector 1 coord
                         Coord coord2 = new Coord((X - x + _MaxCoord) % _MaxCoord, (Y + y) % _MaxCoord);                 // sector 2 coord
                         Coord coord3 = new Coord((X - x + _MaxCoord) % _MaxCoord, (Y - y + _MaxCoord) % _MaxCoord);     // sector 3 coord
                         Coord coord4 = new Coord((X + x) % _MaxCoord, (Y - y + _MaxCoord) % _MaxCoord);                 // sector 4 coord
-                        if (!_CurRegion.Contains(coord1))
-                        {   //if 1 coordinate isnt in the region, they all arent
+                        //if (!_CurRegion.Contains(coord1))
+                        //{   //if 1 coordinate isnt in the region, they all arent
                             Coords.Add(coord1);
                             Coords.Add(coord2);
                             Coords.Add(coord3);
                             Coords.Add(coord4);
-                        }
+                        //}
                     }
                 }
             }
@@ -62,16 +63,13 @@ namespace Voronoi
             return Coords;
         }
 
-        public void ExpandTile(List<Coord> region)
+        public void ExpandTile(int growthSize, List<Coord> region)
         {
-            if(region.Count == 0)
-            {
-                FullyExpanded = true;
-            }
             foreach(Coord coord in region)
             {
                 _CurRegion.Add(coord);
             }
+            Radius += growthSize;
         }
     }
 }

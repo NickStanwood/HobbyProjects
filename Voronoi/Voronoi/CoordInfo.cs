@@ -21,32 +21,42 @@ namespace Voronoi
             Full = false;
         }
 
-        public bool TrySetTile(Tile tile)
+        public bool IsFreeTile(Tile tile)
+        {
+            if(_FirstTile == null || _SecondTile == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void SetTile(Tile tile)
         {
             if(_FirstTile == null)
             {
                 _FirstTile = tile;
-                return true;
             }
-            if(_SecondTile == null)
+            else if(_SecondTile == null)
             {
                 _SecondTile = tile;
-                return true;
             }
-            return false;
         }
 
         public Color GetColor()
         {
             if(_FirstTile == null)
             {
-                return Color.Transparent;
+                return Color.White;
             }
             else if(_SecondTile == null)
             {
                 return Color.Navy;
             }
-            else
+            else if(_FirstTile == _SecondTile)
+            {
+                return Color.AliceBlue;
+            }
+            else 
             {
                 return Color.Gold;
             }

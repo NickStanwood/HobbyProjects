@@ -35,5 +35,11 @@ namespace VoronoiTest
                 tbImgSize.Text = "";
             }
         }
+
+        private void btnGrow_Click( object sender, EventArgs e )
+        {
+            Diagram.GrowSeeds();
+            pbVoronoiDiagram.Image = Diagram.CreateImage();
+        }
     }
 }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbImgSize = new System.Windows.Forms.TextBox();
-            this.tbSeedCount = new System.Windows.Forms.TextBox();
-            this.btnSet = new System.Windows.Forms.Button();
-            this.btnGrow = new System.Windows.Forms.Button();
             this.tbStatus = new System.Windows.Forms.TextBox();
+            this.btnGrow = new System.Windows.Forms.Button();
+            this.btnSet = new System.Windows.Forms.Button();
+            this.tbSeedCount = new System.Windows.Forms.TextBox();
+            this.tbImgSize = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pbVoronoiDiagram = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVoronoiDiagram)).BeginInit();
@@ -56,37 +56,23 @@
             this.panel1.Size = new System.Drawing.Size(200, 450);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // tbStatus
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Image Size";
+            this.tbStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbStatus.Location = new System.Drawing.Point(0, 430);
+            this.tbStatus.Name = "tbStatus";
+            this.tbStatus.Size = new System.Drawing.Size(200, 20);
+            this.tbStatus.TabIndex = 6;
             // 
-            // label2
+            // btnGrow
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Seed Count";
-            // 
-            // tbImgSize
-            // 
-            this.tbImgSize.Location = new System.Drawing.Point(81, 21);
-            this.tbImgSize.Name = "tbImgSize";
-            this.tbImgSize.Size = new System.Drawing.Size(100, 20);
-            this.tbImgSize.TabIndex = 2;
-            // 
-            // tbSeedCount
-            // 
-            this.tbSeedCount.Location = new System.Drawing.Point(81, 51);
-            this.tbSeedCount.Name = "tbSeedCount";
-            this.tbSeedCount.Size = new System.Drawing.Size(100, 20);
-            this.tbSeedCount.TabIndex = 3;
+            this.btnGrow.Location = new System.Drawing.Point(81, 106);
+            this.btnGrow.Name = "btnGrow";
+            this.btnGrow.Size = new System.Drawing.Size(75, 23);
+            this.btnGrow.TabIndex = 5;
+            this.btnGrow.Text = "Grow Seeds";
+            this.btnGrow.UseVisualStyleBackColor = true;
+            this.btnGrow.Click += new System.EventHandler(this.btnGrow_Click);
             // 
             // btnSet
             // 
@@ -98,22 +84,37 @@
             this.btnSet.UseVisualStyleBackColor = true;
             this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
             // 
-            // btnGrow
+            // tbSeedCount
             // 
-            this.btnGrow.Location = new System.Drawing.Point(81, 106);
-            this.btnGrow.Name = "btnGrow";
-            this.btnGrow.Size = new System.Drawing.Size(75, 23);
-            this.btnGrow.TabIndex = 5;
-            this.btnGrow.Text = "Grow Seeds";
-            this.btnGrow.UseVisualStyleBackColor = true;
+            this.tbSeedCount.Location = new System.Drawing.Point(81, 51);
+            this.tbSeedCount.Name = "tbSeedCount";
+            this.tbSeedCount.Size = new System.Drawing.Size(100, 20);
+            this.tbSeedCount.TabIndex = 3;
             // 
-            // tbStatus
+            // tbImgSize
             // 
-            this.tbStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbStatus.Location = new System.Drawing.Point(0, 430);
-            this.tbStatus.Name = "tbStatus";
-            this.tbStatus.Size = new System.Drawing.Size(200, 20);
-            this.tbStatus.TabIndex = 6;
+            this.tbImgSize.Location = new System.Drawing.Point(81, 21);
+            this.tbImgSize.Name = "tbImgSize";
+            this.tbImgSize.Size = new System.Drawing.Size(100, 20);
+            this.tbImgSize.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Seed Count";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Image Size";
             // 
             // pbVoronoiDiagram
             // 
@@ -121,7 +122,7 @@
             this.pbVoronoiDiagram.Location = new System.Drawing.Point(200, 0);
             this.pbVoronoiDiagram.Name = "pbVoronoiDiagram";
             this.pbVoronoiDiagram.Size = new System.Drawing.Size(600, 450);
-            this.pbVoronoiDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbVoronoiDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbVoronoiDiagram.TabIndex = 1;
             this.pbVoronoiDiagram.TabStop = false;
             // 
@@ -138,7 +139,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVoronoiDiagram)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
